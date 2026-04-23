@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "None",
+    "strict": true,
+    "outDir": "js",
+    "rootDir": "ts",
+    "noEmitOnError": true
+  },
+  "include": ["ts/**/*"]
+}
