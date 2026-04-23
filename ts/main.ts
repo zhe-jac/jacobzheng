@@ -2,7 +2,6 @@ const intro = document.getElementById('intro') as HTMLElement;
 const app   = document.getElementById('app')   as HTMLElement;
 const nav   = document.getElementById('nav')   as HTMLElement;
 
-// Intro: animation runs ~0.95s, hold, then fade out
 const HOLD_MS = 2300;
 const FADE_MS = 500;
 
@@ -12,24 +11,43 @@ setTimeout(() => {
   setTimeout(() => intro.remove(), FADE_MS);
 }, HOLD_MS);
 
-// Nav: go solid when user scrolls past the hero
+// Nav goes solid when scrolled
 window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 80);
+  nav.classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
 
-// Scroll-reveal each section
+// Highlight active nav link based on scroll position
+const navLinks   = document.querySelectorAll<HTMLAnchorElement>('.nav-links a');
+const sectionEls = document.querySelectorAll<HTMLElement>('section[id]');
+
+const activeObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        navLinks.forEach((link) => {
+          link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+        });
+      }
+    });
+  },
+  { rootMargin: '-40% 0px -40% 0px' }
+);
+
+sectionEls.forEach((el) => activeObserver.observe(el));
+
+// Scroll-reveal sections
 const sections = document.querySelectorAll<HTMLElement>('.row-section');
 
-const observer = new IntersectionObserver(
+const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('revealed');
-        observer.unobserve(entry.target);
+        revealObserver.unobserve(entry.target);
       }
     });
   },
   { threshold: 0.1 }
 );
 
-sections.forEach((el) => observer.observe(el));
+sections.forEach((el) => revealObserver.observe(el));
