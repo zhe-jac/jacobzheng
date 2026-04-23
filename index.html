@@ -2,45 +2,163 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Your Name — Messages</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jacob Zheng</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <div class="app">
-    <aside class="sidebar" id="sidebar">
-      <div class="sidebar-header">
-        <button class="header-btn" id="edit-btn">Edit</button>
-        <h1 class="sidebar-title">Messages</h1>
-        <button class="header-btn compose" id="compose-btn" aria-label="Compose">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-          </svg>
-        </button>
-      </div>
-      <div class="search-wrapper">
-        <div class="search-bar">
-          <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-          </svg>
-          <input type="text" id="search-input" placeholder="Search" autocomplete="off" />
-        </div>
-      </div>
-      <ul class="conversation-list" id="conversation-list" role="listbox"></ul>
-    </aside>
 
-    <main class="chat-pane" id="chat-pane">
-      <div class="chat-empty" id="chat-empty">
-        <div class="chat-empty-icon">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-          </svg>
-        </div>
-        <p>Select a conversation</p>
-        <span>Choose from the list to start reading</span>
+  <!-- INTRO -->
+  <div id="intro" class="intro">
+    <span class="intro-name">JACOB ZHENG</span>
+  </div>
+
+  <!-- APP -->
+  <div id="app" class="app">
+
+    <!-- NAV -->
+    <nav id="nav" class="nav">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo">JACOB ZHENG</a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#interests">Interests</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+        </ul>
       </div>
-    </main>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Portfolio</p>
+        <h1 class="hero-name">Jacob Zheng</h1>
+        <p class="hero-bio">[ Short tagline about yourself — what you do and what you're about. ]</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn-red">&#9654;&nbsp; Projects</a>
+          <a href="#about" class="btn-ghost">&#9432;&nbsp; About Me</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <div class="rows">
+
+      <section id="about" class="row-section">
+        <h2 class="row-label">About Me</h2>
+        <div class="about-card">
+          <p>[ Your bio goes here — who you are, what drives you, what you're working towards. Keep it short and personal. ]</p>
+        </div>
+      </section>
+
+      <section id="university" class="row-section">
+        <h2 class="row-label">University &amp; Program</h2>
+        <div class="info-card">
+          <span class="info-card-icon">🎓</span>
+          <div>
+            <div class="info-card-title">[ University Name ]</div>
+            <div class="info-card-sub">[ Program / Major ] &middot; Class of [ Year ]</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="interests" class="row-section">
+        <h2 class="row-label">What I'm Into</h2>
+        <div class="chips">
+          <span class="chip">💻 Building things</span>
+          <span class="chip">🎮 Gaming</span>
+          <span class="chip">🎵 Music</span>
+          <span class="chip">📖 Learning</span>
+          <span class="chip">[ Add more ]</span>
+        </div>
+      </section>
+
+      <section id="projects" class="row-section">
+        <h2 class="row-label">Projects</h2>
+        <div class="proj-row">
+
+          <div class="proj-card" style="--hue:220deg">
+            <div class="proj-thumb"></div>
+            <div class="proj-info">
+              <div class="proj-title">Project One</div>
+              <div class="proj-tags">React &middot; Node.js &middot; MongoDB</div>
+              <p class="proj-desc">[ What this project does and why it matters. ]</p>
+              <div class="proj-links">
+                <a href="#" target="_blank" rel="noopener">GitHub ↗</a>
+                <a href="#" target="_blank" rel="noopener">Live ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="proj-card" style="--hue:0deg">
+            <div class="proj-thumb"></div>
+            <div class="proj-info">
+              <div class="proj-title">Project Two</div>
+              <div class="proj-tags">Python &middot; Flask &middot; PostgreSQL</div>
+              <p class="proj-desc">[ What this project does and why it matters. ]</p>
+              <div class="proj-links">
+                <a href="#" target="_blank" rel="noopener">GitHub ↗</a>
+                <a href="#" target="_blank" rel="noopener">Live ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="proj-card" style="--hue:280deg">
+            <div class="proj-thumb"></div>
+            <div class="proj-info">
+              <div class="proj-title">Project Three</div>
+              <div class="proj-tags">TypeScript &middot; Next.js &middot; Tailwind</div>
+              <p class="proj-desc">[ What this project does and why it matters. ]</p>
+              <div class="proj-links">
+                <a href="#" target="_blank" rel="noopener">GitHub ↗</a>
+                <a href="#" target="_blank" rel="noopener">Live ↗</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="experience" class="row-section">
+        <h2 class="row-label">Experience</h2>
+        <div class="exp-list">
+
+          <div class="exp-item">
+            <div class="exp-meta">
+              <span class="exp-date">[ Date – Date ]</span>
+              <span class="exp-org">[ Company ]</span>
+            </div>
+            <div class="exp-role">[ Job Title ]</div>
+            <p class="exp-desc">[ What you did, built, or achieved. One to two sentences. ]</p>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-meta">
+              <span class="exp-date">[ Date – Date ]</span>
+              <span class="exp-org">[ Company ]</span>
+            </div>
+            <div class="exp-role">[ Job Title ]</div>
+            <p class="exp-desc">[ What you did, built, or achieved. One to two sentences. ]</p>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+    <footer class="footer">
+      <p class="footer-name">JACOB ZHENG</p>
+      <div class="footer-links">
+        <a href="https://github.com/zhe-jac" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/yourhandle" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:your@email.com">Email</a>
+      </div>
+    </footer>
+
   </div>
 
   <script src="js/main.js"></script>
