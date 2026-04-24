@@ -1,58 +1,57 @@
 "use strict";
+
 const intro = document.getElementById('intro');
 const app   = document.getElementById('app');
-const nav   = document.getElementById('nav');
 
-const HOLD_MS = 2300;
-const FADE_MS = 500;
-
+// Intro timing
 setTimeout(() => {
   intro.classList.add('fade-out');
   app.classList.add('visible');
-  setTimeout(() => intro.remove(), FADE_MS);
-}, HOLD_MS);
+  setTimeout(() => intro.remove(), 500);
+}, 2300);
 
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
-}, { passive: true });
-
-// Active nav link
-const navLinks   = document.querySelectorAll('.nav-links a');
-const sectionEls = document.querySelectorAll('section[id]');
-
-const activeObserver = new IntersectionObserver(
+// Scroll-reveal for left column sections
+const sections = document.querySelectorAll('.info-section');
+const revealObs = new IntersectionObserver(
   (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        navLinks.forEach((link) => {
-          link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
-        });
-      }
-    });
-  },
-  { rootMargin: '-40% 0px -40% 0px' }
-);
-sectionEls.forEach((el) => activeObserver.observe(el));
-
-// Scroll-reveal
-const sections = document.querySelectorAll('.row-section');
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        revealObserver.unobserve(entry.target);
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('revealed');
+        revealObs.unobserve(e.target);
       }
     });
   },
   { threshold: 0.1 }
 );
-sections.forEach((el) => revealObserver.observe(el));
+sections.forEach((el) => revealObs.observe(el));
 
-// Project card: play demo video on hover
-document.querySelectorAll('.proj-card').forEach((card) => {
-  const video = card.querySelector('video');
-  if (!video) return;
-  card.addEventListener('mouseenter', () => video.play().catch(() => {}));
-  card.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+// "about me" button — scroll to about + pulse highlight
+document.getElementById('btn-about').addEventListener('click', () => {
+  const target = document.getElementById('about');
+  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  target.classList.remove('focus-pulse');
+  void target.offsetWidth; // reflow to restart animation
+  target.classList.add('focus-pulse');
+  target.addEventListener('animationend', () => target.classList.remove('focus-pulse'), { once: true });
 });
+
+// "projects" button — pulse highlight on Tandem card
+document.getElementById('btn-projects').addEventListener('click', () => {
+  const target = document.getElementById('tandem-card');
+  // On mobile, scroll into view
+  if (window.innerWidth <= 720) {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  target.classList.remove('focus-pulse');
+  void target.offsetWidth;
+  target.classList.add('focus-pulse');
+  target.addEventListener('animationend', () => target.classList.remove('focus-pulse'), { once: true });
+});
+
+// Tandem: play video on hover
+const tandemCard = document.getElementById('tandem-card');
+const tandemVideo = tandemCard.querySelector('video');
+if (tandemVideo) {
+  tandemCard.addEventListener('mouseenter', () => tandemVideo.play().catch(() => {}));
+  tandemCard.addEventListener('mouseleave', () => { tandemVideo.pause(); tandemVideo.currentTime = 0; });
+}
