@@ -34,7 +34,7 @@ ul { list-style: none; }
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: #1c1c1c;
+  background: var(--bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,7 +48,7 @@ ul { list-style: none; }
   letter-spacing: -1px;
   position: relative;
   animation: introReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
-  text-shadow: 0 0 50px rgba(90, 171, 204, 0.5);
+  text-shadow: none;
 }
 
 .intro-name::after {
@@ -118,11 +118,11 @@ ul { list-style: none; }
 .nav-logo {
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--text);
+  color: var(--blue);
   letter-spacing: 0;
-  transition: color 0.2s;
+  transition: opacity 0.2s;
 }
-.nav-logo:hover { color: var(--blue); }
+.nav-logo:hover { opacity: 0.75; }
 
 .nav-links {
   display: flex;
@@ -135,7 +135,7 @@ ul { list-style: none; }
   transition: color 0.2s;
 }
 .nav-links a:hover,
-.nav-links a.active { color: var(--text); }
+.nav-links a.active { color: var(--blue); }
 
 /* ============================================================
    HERO
@@ -177,15 +177,15 @@ ul { list-style: none; }
 .btn-primary {
   display: inline-flex;
   align-items: center;
-  background: var(--text);
-  color: var(--bg);
+  background: var(--blue);
+  color: #fff;
   font-weight: 500;
   font-size: 0.82rem;
   padding: 0.55rem 1.2rem;
   border-radius: 6px;
   transition: opacity 0.2s;
 }
-.btn-primary:hover { opacity: 0.75; }
+.btn-primary:hover { opacity: 0.8; }
 
 .btn-ghost {
   display: inline-flex;
@@ -245,9 +245,9 @@ ul { list-style: none; }
 
 .row-label {
   font-size: 0.68rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.08em;
-  color: var(--text-dim);
+  color: var(--blue);
   margin-bottom: 0.75rem;
   text-transform: lowercase;
 }
@@ -258,6 +258,7 @@ ul { list-style: none; }
 .about-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
+  border-left: 2px solid var(--blue);
   border-radius: 8px;
   padding: 1.1rem 1.3rem;
   max-width: 520px;
@@ -279,7 +280,7 @@ ul { list-style: none; }
   padding: 0.9rem 1.3rem;
   transition: border-color 0.2s;
 }
-.info-card:hover { border-color: #ccc; }
+.info-card:hover { border-color: var(--blue); }
 
 .info-card-icon { font-size: 1.5rem; }
 
@@ -313,7 +314,7 @@ ul { list-style: none; }
   cursor: default;
   transition: border-color 0.2s;
 }
-.chip:hover { border-color: #bbb; }
+.chip:hover { border-color: var(--blue); color: var(--blue); }
 
 /* ============================================================
    TANDEM CARD
@@ -425,7 +426,7 @@ ul { list-style: none; }
   width: fit-content;
   transition: border-color 0.2s, color 0.2s;
 }
-.tandem-link:hover { border-color: #bbb; color: var(--text); }
+.tandem-link:hover { border-color: var(--blue); color: var(--blue); }
 
 /* Stack tags */
 .tandem-stack {
