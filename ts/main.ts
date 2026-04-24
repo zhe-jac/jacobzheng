@@ -1,6 +1,11 @@
 const intro = document.getElementById('intro') as HTMLElement;
 const app   = document.getElementById('app')   as HTMLElement;
 
+const introSound = document.getElementById('intro-sound') as HTMLAudioElement | null;
+if (introSound) {
+  introSound.play().catch(() => {});
+}
+
 setTimeout(() => {
   intro.classList.add('fade-out');
   app.classList.add('visible');

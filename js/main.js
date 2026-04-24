@@ -3,6 +3,12 @@
 const intro = document.getElementById('intro');
 const app   = document.getElementById('app');
 
+// Play intro sound
+const introSound = document.getElementById('intro-sound');
+if (introSound) {
+  introSound.play().catch(() => {});
+}
+
 // Intro timing
 setTimeout(() => {
   intro.classList.add('fade-out');
