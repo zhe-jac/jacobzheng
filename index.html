@@ -6,14 +6,14 @@
   <title>Jacob Zheng</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
   <!-- INTRO -->
   <div id="intro" class="intro">
-    <span class="intro-name">JACOB ZHENG</span>
+    <span class="intro-name">Jacob Zheng</span>
   </div>
 
   <!-- APP -->
@@ -22,7 +22,7 @@
     <!-- NAV -->
     <nav id="nav" class="nav">
       <div class="nav-inner">
-        <a href="#hero" class="nav-logo">JACOB ZHENG</a>
+        <a href="#hero" class="nav-logo">Jacob Zheng</a>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#interests">Interests</a></li>
@@ -34,13 +34,19 @@
 
     <!-- HERO -->
     <section id="hero" class="hero">
-      <div class="hero-content">
-        <p class="hero-eyebrow">Portfolio</p>
-        <h1 class="hero-name">Jacob Zheng</h1>
-        <p class="hero-bio">[ Short tagline about yourself — what you do and what you're about. ]</p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn-blue">&#9654;&nbsp; Projects</a>
-          <a href="#about" class="btn-ghost">&#9432;&nbsp; About Me</a>
+      <div class="hero-wrapper">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Portfolio</p>
+          <h1 class="hero-name">Jacob Zheng</h1>
+          <p class="hero-bio">hi i'm jacob!</p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn-blue">Projects</a>
+            <a href="#about" class="btn-ghost">About Me</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <!-- Replace with your photo: <img src="your-photo.jpg" alt="Jacob Zheng" /> -->
+          <span>your photo</span>
         </div>
       </div>
     </section>
@@ -51,7 +57,7 @@
       <section id="about" class="row-section">
         <h2 class="row-label">About Me</h2>
         <div class="about-card">
-          <p>[ Your bio goes here — who you are, what drives you, what you're working towards. Keep it short and personal. ]</p>
+          <p>I'm a math student at Waterloo pursuing software development.</p>
         </div>
       </section>
 
@@ -60,8 +66,8 @@
         <div class="info-card">
           <span class="info-card-icon">🎓</span>
           <div>
-            <div class="info-card-title">[ University Name ]</div>
-            <div class="info-card-sub">[ Program / Major ] &middot; Class of [ Year ]</div>
+            <div class="info-card-title">University of Waterloo</div>
+            <div class="info-card-sub">Mathematics &middot; Pursuing Software Development</div>
           </div>
         </div>
       </section>
@@ -70,10 +76,10 @@
         <h2 class="row-label">What I'm Into</h2>
         <div class="chips">
           <span class="chip">💻 Building things</span>
-          <span class="chip">🎮 Gaming</span>
           <span class="chip">🎵 Music</span>
+          <span class="chip">🏐 Volleyball</span>
+          <span class="chip">♠️ Poker</span>
           <span class="chip">📖 Learning</span>
-          <span class="chip">[ Add more ]</span>
         </div>
       </section>
 
@@ -81,12 +87,17 @@
         <h2 class="row-label">Projects</h2>
         <div class="proj-row">
 
-          <div class="proj-card" style="--hue:220deg">
-            <div class="proj-thumb"></div>
+          <div class="proj-card" style="--hue:210deg">
+            <div class="proj-thumb">
+              <!-- Drop your demo video at videos/tandem-demo.mp4 -->
+              <video class="proj-video" muted loop playsinline preload="none">
+                <source src="videos/tandem-demo.mp4" type="video/mp4" />
+              </video>
+            </div>
             <div class="proj-info">
-              <div class="proj-title">Project One</div>
-              <div class="proj-tags">React &middot; Node.js &middot; MongoDB</div>
-              <p class="proj-desc">[ What this project does and why it matters. ]</p>
+              <div class="proj-title">Tandem</div>
+              <div class="proj-tags">Next.js &middot; FastAPI &middot; Gemini 1.5 Pro &middot; ElevenLabs</div>
+              <p class="proj-desc">An AI study companion that watches your whiteboard, listens to your voice, and guides you step-by-step in real time — turning lecture notes into active problem-solving sessions.</p>
               <div class="proj-links">
                 <a href="#" target="_blank" rel="noopener">GitHub ↗</a>
                 <a href="#" target="_blank" rel="noopener">Live ↗</a>
@@ -94,11 +105,11 @@
             </div>
           </div>
 
-          <div class="proj-card" style="--hue:0deg">
+          <div class="proj-card" style="--hue:160deg">
             <div class="proj-thumb"></div>
             <div class="proj-info">
               <div class="proj-title">Project Two</div>
-              <div class="proj-tags">Python &middot; Flask &middot; PostgreSQL</div>
+              <div class="proj-tags">[ Tech stack ]</div>
               <p class="proj-desc">[ What this project does and why it matters. ]</p>
               <div class="proj-links">
                 <a href="#" target="_blank" rel="noopener">GitHub ↗</a>
@@ -111,7 +122,7 @@
             <div class="proj-thumb"></div>
             <div class="proj-info">
               <div class="proj-title">Project Three</div>
-              <div class="proj-tags">TypeScript &middot; Next.js &middot; Tailwind</div>
+              <div class="proj-tags">[ Tech stack ]</div>
               <p class="proj-desc">[ What this project does and why it matters. ]</p>
               <div class="proj-links">
                 <a href="#" target="_blank" rel="noopener">GitHub ↗</a>
@@ -133,7 +144,7 @@
               <span class="exp-org">[ Company ]</span>
             </div>
             <div class="exp-role">[ Job Title ]</div>
-            <p class="exp-desc">[ What you did, built, or achieved. One to two sentences. ]</p>
+            <p class="exp-desc">[ What you did, built, or achieved. ]</p>
           </div>
 
           <div class="exp-item">
@@ -142,7 +153,7 @@
               <span class="exp-org">[ Company ]</span>
             </div>
             <div class="exp-role">[ Job Title ]</div>
-            <p class="exp-desc">[ What you did, built, or achieved. One to two sentences. ]</p>
+            <p class="exp-desc">[ What you did, built, or achieved. ]</p>
           </div>
 
         </div>
@@ -151,7 +162,7 @@
     </div>
 
     <footer class="footer">
-      <p class="footer-name">JACOB ZHENG</p>
+      <p class="footer-name">Jacob Zheng</p>
       <div class="footer-links">
         <a href="https://github.com/zhe-jac" target="_blank" rel="noopener">GitHub</a>
         <a href="https://linkedin.com/in/yourhandle" target="_blank" rel="noopener">LinkedIn</a>

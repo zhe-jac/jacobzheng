@@ -16,6 +16,7 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
 
+// Active nav link
 const navLinks   = document.querySelectorAll('.nav-links a');
 const sectionEls = document.querySelectorAll('section[id]');
 
@@ -31,11 +32,10 @@ const activeObserver = new IntersectionObserver(
   },
   { rootMargin: '-40% 0px -40% 0px' }
 );
-
 sectionEls.forEach((el) => activeObserver.observe(el));
 
+// Scroll-reveal
 const sections = document.querySelectorAll('.row-section');
-
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -47,5 +47,12 @@ const revealObserver = new IntersectionObserver(
   },
   { threshold: 0.1 }
 );
-
 sections.forEach((el) => revealObserver.observe(el));
+
+// Project card: play demo video on hover
+document.querySelectorAll('.proj-card').forEach((card) => {
+  const video = card.querySelector('video');
+  if (!video) return;
+  card.addEventListener('mouseenter', () => video.play().catch(() => {}));
+  card.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+});

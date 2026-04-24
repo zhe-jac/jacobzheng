@@ -11,12 +11,11 @@ setTimeout(() => {
   setTimeout(() => intro.remove(), FADE_MS);
 }, HOLD_MS);
 
-// Nav goes solid when scrolled
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
 
-// Highlight active nav link based on scroll position
+// Active nav link
 const navLinks   = document.querySelectorAll<HTMLAnchorElement>('.nav-links a');
 const sectionEls = document.querySelectorAll<HTMLElement>('section[id]');
 
@@ -32,12 +31,10 @@ const activeObserver = new IntersectionObserver(
   },
   { rootMargin: '-40% 0px -40% 0px' }
 );
-
 sectionEls.forEach((el) => activeObserver.observe(el));
 
-// Scroll-reveal sections
+// Scroll-reveal
 const sections = document.querySelectorAll<HTMLElement>('.row-section');
-
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -49,5 +46,12 @@ const revealObserver = new IntersectionObserver(
   },
   { threshold: 0.1 }
 );
-
 sections.forEach((el) => revealObserver.observe(el));
+
+// Project card: play demo video on hover
+document.querySelectorAll<HTMLElement>('.proj-card').forEach((card) => {
+  const video = card.querySelector('video');
+  if (!video) return;
+  card.addEventListener('mouseenter', () => video.play().catch(() => {}));
+  card.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+});
