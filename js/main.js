@@ -3,10 +3,22 @@
 const intro = document.getElementById('intro');
 const app   = document.getElementById('app');
 
-// Play intro sound
+// Play intro sound — fall back to first interaction if autoplay is blocked
 const introSound = document.getElementById('intro-sound');
-if (introSound) {
+let soundPlayed = false;
+
+function playIntroSound() {
+  if (soundPlayed || !introSound) return;
+  soundPlayed = true;
   introSound.play().catch(() => {});
+}
+
+if (introSound) {
+  introSound.play().then(() => { soundPlayed = true; }).catch(() => {
+    ['click', 'keydown', 'touchstart'].forEach((evt) => {
+      document.addEventListener(evt, playIntroSound, { once: true });
+    });
+  });
 }
 
 // Intro timing
