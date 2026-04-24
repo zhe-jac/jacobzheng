@@ -264,6 +264,7 @@ ul { list-style: none; }
   transition: border-color 0.2s, color 0.2s;
 }
 .chip:hover { border-color: var(--blue); color: var(--blue); }
+.chip-link { cursor: pointer; }
 
 /* ============================================================
    EXPERIENCE
