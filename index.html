@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jacob Zheng</title>
+  <title>jacob zheng</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -13,7 +13,7 @@
 
   <!-- INTRO -->
   <div id="intro" class="intro">
-    <span class="intro-name">Jacob Zheng</span>
+    <span class="intro-name">jacob zheng</span>
   </div>
 
   <!-- APP -->
@@ -22,12 +22,12 @@
     <!-- NAV -->
     <nav id="nav" class="nav">
       <div class="nav-inner">
-        <a href="#hero" class="nav-logo">Jacob Zheng</a>
+        <a href="#hero" class="nav-logo">jacob zheng</a>
         <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#interests">Interests</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#experience">Experience</a></li>
+          <li><a href="#about">about</a></li>
+          <li><a href="#interests">interests</a></li>
+          <li><a href="#projects">projects</a></li>
+          <li><a href="#experience">experience</a></li>
         </ul>
       </div>
     </nav>
@@ -36,16 +36,15 @@
     <section id="hero" class="hero">
       <div class="hero-wrapper">
         <div class="hero-content">
-          <p class="hero-eyebrow">Portfolio</p>
-          <h1 class="hero-name">Jacob Zheng</h1>
+          <h1 class="hero-name">jacob zheng</h1>
           <p class="hero-bio">hi i'm jacob!</p>
           <div class="hero-actions">
-            <a href="#projects" class="btn-blue">Projects</a>
-            <a href="#about" class="btn-ghost">About Me</a>
+            <a href="#projects" class="btn-primary">projects</a>
+            <a href="#about" class="btn-ghost">about me</a>
           </div>
         </div>
         <div class="hero-photo">
-          <!-- Replace with your photo: <img src="your-photo.jpg" alt="Jacob Zheng" /> -->
+          <!-- Replace with: <img src="your-photo.jpg" alt="Jacob Zheng" /> -->
           <span>your photo</span>
         </div>
       </div>
@@ -55,105 +54,116 @@
     <div class="rows">
 
       <section id="about" class="row-section">
-        <h2 class="row-label">About Me</h2>
+        <div class="row-label">about me</div>
         <div class="about-card">
-          <p>I'm a math student at Waterloo pursuing software development.</p>
+          <p>i'm a math student at waterloo pursuing software development.</p>
         </div>
       </section>
 
       <section id="university" class="row-section">
-        <h2 class="row-label">University &amp; Program</h2>
+        <div class="row-label">university &amp; program</div>
         <div class="info-card">
           <span class="info-card-icon">🎓</span>
           <div>
             <div class="info-card-title">University of Waterloo</div>
-            <div class="info-card-sub">Mathematics &middot; Pursuing Software Development</div>
+            <div class="info-card-sub">Mathematics &middot; pursuing software development</div>
           </div>
         </div>
       </section>
 
       <section id="interests" class="row-section">
-        <h2 class="row-label">What I'm Into</h2>
+        <div class="row-label">what i'm into</div>
         <div class="chips">
-          <span class="chip">💻 Building things</span>
-          <span class="chip">🎵 Music</span>
-          <span class="chip">🏐 Volleyball</span>
-          <span class="chip">♠️ Poker</span>
-          <span class="chip">📖 Learning</span>
+          <span class="chip">🎵 music</span>
+          <span class="chip">🏐 volleyball</span>
+          <span class="chip">♠️ poker</span>
         </div>
       </section>
 
       <section id="projects" class="row-section">
-        <h2 class="row-label">Projects</h2>
-        <div class="proj-row">
+        <div class="row-label">projects</div>
 
-          <div class="proj-card" style="--hue:210deg">
-            <div class="proj-thumb">
-              <!-- Drop your demo video at videos/tandem-demo.mp4 -->
-              <video class="proj-video" muted loop playsinline preload="none">
+        <div class="tandem-card">
+          <div class="tandem-inner">
+
+            <!-- Left: video / thumbnail -->
+            <div class="tandem-visual" style="--hue:210deg">
+              <video class="tandem-video" muted loop playsinline preload="none">
                 <source src="videos/tandem-demo.mp4" type="video/mp4" />
               </video>
             </div>
-            <div class="proj-info">
-              <div class="proj-title">Tandem</div>
-              <div class="proj-tags">Next.js &middot; FastAPI &middot; Gemini 1.5 Pro &middot; ElevenLabs</div>
-              <p class="proj-desc">An AI study companion that watches your whiteboard, listens to your voice, and guides you step-by-step in real time — turning lecture notes into active problem-solving sessions.</p>
-              <div class="proj-links">
-                <a href="#" target="_blank" rel="noopener">GitHub ↗</a>
-                <a href="#" target="_blank" rel="noopener">Live ↗</a>
+
+            <!-- Right: info -->
+            <div class="tandem-info">
+              <div class="tandem-name">tandem</div>
+
+              <div class="tandem-block">
+                <div class="tandem-label">about</div>
+                <ul class="tandem-about">
+                  <li>real-time AI tutor that watches your whiteboard, speaks to you, and guides you through problems</li>
+                  <li>interrupt the AI mid-sentence and it pivots to your new thought</li>
+                  <li>tracks intermediate steps, not just final answers, catches mistakes as you work</li>
+                </ul>
               </div>
+
+              <div class="tandem-block">
+                <div class="tandem-label">links</div>
+                <div class="tandem-links">
+                  <a href="#" target="_blank" rel="noopener" class="tandem-link">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                    GitHub
+                  </a>
+                  <a href="#" target="_blank" rel="noopener" class="tandem-link">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M6.002 1.61L0 12.004 6.002 22.4h11.996L24 12.004 17.998 1.61zm1.593 16.526l-3.998-6.132 3.998-6.13h8.81l3.998 6.13-3.998 6.132z"/>
+                    </svg>
+                    Devpost
+                  </a>
+                </ul>
+              </div>
+
+              <div class="tandem-block">
+                <div class="tandem-label">stack</div>
+                <div class="tandem-stack">
+                  <span>Next.js</span>
+                  <span>React</span>
+                  <span>TailwindCSS</span>
+                  <span>TLDraw</span>
+                  <span>FastAPI</span>
+                  <span>Vertex AI Gemini</span>
+                  <span>ElevenLabs</span>
+                  <span>MediaPipe</span>
+                </div>
+              </div>
+
             </div>
           </div>
-
-          <div class="proj-card" style="--hue:160deg">
-            <div class="proj-thumb"></div>
-            <div class="proj-info">
-              <div class="proj-title">Project Two</div>
-              <div class="proj-tags">[ Tech stack ]</div>
-              <p class="proj-desc">[ What this project does and why it matters. ]</p>
-              <div class="proj-links">
-                <a href="#" target="_blank" rel="noopener">GitHub ↗</a>
-                <a href="#" target="_blank" rel="noopener">Live ↗</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="proj-card" style="--hue:280deg">
-            <div class="proj-thumb"></div>
-            <div class="proj-info">
-              <div class="proj-title">Project Three</div>
-              <div class="proj-tags">[ Tech stack ]</div>
-              <p class="proj-desc">[ What this project does and why it matters. ]</p>
-              <div class="proj-links">
-                <a href="#" target="_blank" rel="noopener">GitHub ↗</a>
-                <a href="#" target="_blank" rel="noopener">Live ↗</a>
-              </div>
-            </div>
-          </div>
-
         </div>
+
       </section>
 
       <section id="experience" class="row-section">
-        <h2 class="row-label">Experience</h2>
+        <div class="row-label">experience</div>
         <div class="exp-list">
 
           <div class="exp-item">
             <div class="exp-meta">
-              <span class="exp-date">[ Date – Date ]</span>
-              <span class="exp-org">[ Company ]</span>
+              <span class="exp-date">[ date – date ]</span>
+              <span class="exp-org">[ company ]</span>
             </div>
-            <div class="exp-role">[ Job Title ]</div>
-            <p class="exp-desc">[ What you did, built, or achieved. ]</p>
+            <div class="exp-role">[ job title ]</div>
+            <p class="exp-desc">[ what you did, built, or achieved. ]</p>
           </div>
 
           <div class="exp-item">
             <div class="exp-meta">
-              <span class="exp-date">[ Date – Date ]</span>
-              <span class="exp-org">[ Company ]</span>
+              <span class="exp-date">[ date – date ]</span>
+              <span class="exp-org">[ company ]</span>
             </div>
-            <div class="exp-role">[ Job Title ]</div>
-            <p class="exp-desc">[ What you did, built, or achieved. ]</p>
+            <div class="exp-role">[ job title ]</div>
+            <p class="exp-desc">[ what you did, built, or achieved. ]</p>
           </div>
 
         </div>
@@ -162,11 +172,11 @@
     </div>
 
     <footer class="footer">
-      <p class="footer-name">Jacob Zheng</p>
+      <p class="footer-name">jacob zheng</p>
       <div class="footer-links">
-        <a href="https://github.com/zhe-jac" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://linkedin.com/in/yourhandle" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:your@email.com">Email</a>
+        <a href="https://github.com/zhe-jac" target="_blank" rel="noopener">github</a>
+        <a href="https://linkedin.com/in/yourhandle" target="_blank" rel="noopener">linkedin</a>
+        <a href="mailto:your@email.com">email</a>
       </div>
     </footer>
 
