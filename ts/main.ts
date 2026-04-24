@@ -2,27 +2,13 @@ const intro = document.getElementById('intro') as HTMLElement;
 const app   = document.getElementById('app')   as HTMLElement;
 
 const introSound = document.getElementById('intro-sound') as HTMLAudioElement | null;
-let soundPlayed = false;
 
-function playIntroSound(): void {
-  if (soundPlayed || !introSound) return;
-  soundPlayed = true;
-  introSound.play().catch(() => {});
-}
-
-if (introSound) {
-  introSound.play().then(() => { soundPlayed = true; }).catch(() => {
-    ['click', 'keydown', 'touchstart'].forEach((evt) => {
-      document.addEventListener(evt, playIntroSound, { once: true });
-    });
-  });
-}
-
-setTimeout(() => {
+intro.addEventListener('click', () => {
+  if (introSound) introSound.play().catch(() => {});
   intro.classList.add('fade-out');
   app.classList.add('visible');
   setTimeout(() => intro.remove(), 500);
-}, 2300);
+}, { once: true });
 
 const sections = document.querySelectorAll<HTMLElement>('.info-section');
 const revealObs = new IntersectionObserver(

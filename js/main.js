@@ -3,30 +3,15 @@
 const intro = document.getElementById('intro');
 const app   = document.getElementById('app');
 
-// Play intro sound — fall back to first interaction if autoplay is blocked
+// Intro: click to dismiss and play sound
 const introSound = document.getElementById('intro-sound');
-let soundPlayed = false;
 
-function playIntroSound() {
-  if (soundPlayed || !introSound) return;
-  soundPlayed = true;
-  introSound.play().catch(() => {});
-}
-
-if (introSound) {
-  introSound.play().then(() => { soundPlayed = true; }).catch(() => {
-    ['click', 'keydown', 'touchstart'].forEach((evt) => {
-      document.addEventListener(evt, playIntroSound, { once: true });
-    });
-  });
-}
-
-// Intro timing
-setTimeout(() => {
+intro.addEventListener('click', () => {
+  if (introSound) introSound.play().catch(() => {});
   intro.classList.add('fade-out');
   app.classList.add('visible');
   setTimeout(() => intro.remove(), 500);
-}, 2300);
+}, { once: true });
 
 // Scroll-reveal for left column sections
 const sections = document.querySelectorAll('.info-section');
