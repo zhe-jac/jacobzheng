@@ -29,9 +29,24 @@ function pulseElement(el: HTMLElement): void {
 }
 
 document.getElementById('btn-about')!.addEventListener('click', () => {
-  const target = document.getElementById('about')!;
-  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  pulseElement(target);
+  const aboutSection = document.getElementById('about')!;
+  aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  const aboutCard = aboutSection.querySelector('.about-card') as HTMLElement;
+  aboutCard.classList.remove('text-highlight');
+  void aboutCard.offsetWidth;
+  aboutCard.classList.add('text-highlight');
+  aboutCard.addEventListener('animationend', () => aboutCard.classList.remove('text-highlight'), { once: true });
+
+  ['university', 'interests', 'experience'].forEach((id, i) => {
+    setTimeout(() => {
+      const section = document.getElementById(id)!;
+      section.classList.remove('section-highlight');
+      void section.offsetWidth;
+      section.classList.add('section-highlight');
+      section.addEventListener('animationend', () => section.classList.remove('section-highlight'), { once: true });
+    }, 200 + i * 150);
+  });
 });
 
 document.getElementById('btn-projects')!.addEventListener('click', () => {

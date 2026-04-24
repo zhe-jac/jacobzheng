@@ -25,14 +25,26 @@ const revealObs = new IntersectionObserver(
 );
 sections.forEach((el) => revealObs.observe(el));
 
-// "about me" button — scroll to about + pulse highlight
+// "about me" button — scroll + highlight text + cascade sections
 document.getElementById('btn-about').addEventListener('click', () => {
-  const target = document.getElementById('about');
-  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  target.classList.remove('focus-pulse');
-  void target.offsetWidth; // reflow to restart animation
-  target.classList.add('focus-pulse');
-  target.addEventListener('animationend', () => target.classList.remove('focus-pulse'), { once: true });
+  const aboutSection = document.getElementById('about');
+  aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  const aboutCard = aboutSection.querySelector('.about-card');
+  aboutCard.classList.remove('text-highlight');
+  void aboutCard.offsetWidth;
+  aboutCard.classList.add('text-highlight');
+  aboutCard.addEventListener('animationend', () => aboutCard.classList.remove('text-highlight'), { once: true });
+
+  ['university', 'interests', 'experience'].forEach((id, i) => {
+    setTimeout(() => {
+      const section = document.getElementById(id);
+      section.classList.remove('section-highlight');
+      void section.offsetWidth;
+      section.classList.add('section-highlight');
+      section.addEventListener('animationend', () => section.classList.remove('section-highlight'), { once: true });
+    }, 200 + i * 150);
+  });
 });
 
 // "projects" button — pulse highlight on Tandem card
