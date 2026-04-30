@@ -171,9 +171,13 @@ ul { list-style: none; }
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.2s;
 }
-.btn-primary:hover { opacity: 0.8; }
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(90, 171, 204, 0.35), 0 2px 6px rgba(0,0,0,0.08);
+}
 
 .btn-ghost {
   background: transparent;
@@ -185,9 +189,14 @@ ul { list-style: none; }
   border: 1px solid var(--border);
   border-radius: 6px;
   cursor: pointer;
-  transition: border-color 0.2s, color 0.2s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.2s, color 0.2s;
 }
-.btn-ghost:hover { border-color: var(--blue); color: var(--blue); }
+.btn-ghost:hover {
+  border-color: rgba(90, 171, 204, 0.6);
+  color: var(--blue);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(90, 171, 204, 0.2), 0 2px 6px rgba(0,0,0,0.06);
+}
 
 /* ============================================================
    SECTION LABELS
@@ -250,6 +259,11 @@ ul { list-style: none; }
   font-size: 0.91rem;
   color: var(--text-muted);
   line-height: 1.75;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.about-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(90, 171, 204, 0.25), 0 4px 12px rgba(0,0,0,0.07);
 }
 
 /* ============================================================
@@ -263,9 +277,13 @@ ul { list-style: none; }
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 0.85rem 1.2rem;
-  transition: border-color 0.2s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
-.info-card:hover { border-color: var(--blue); }
+.info-card:hover {
+  border-color: rgba(90, 171, 204, 0.6);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(90, 171, 204, 0.25), 0 4px 12px rgba(0,0,0,0.07);
+}
 
 .info-card-icon { font-size: 1.4rem; }
 .info-card-title { font-size: 0.88rem; font-weight: 600; color: var(--text); }
@@ -284,9 +302,14 @@ ul { list-style: none; }
   font-size: 0.82rem;
   color: var(--text-muted);
   cursor: default;
-  transition: border-color 0.2s, color 0.2s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.2s, color 0.2s;
 }
-.chip:hover { border-color: var(--blue); color: var(--blue); }
+.chip:hover {
+  border-color: rgba(90, 171, 204, 0.6);
+  color: var(--blue);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(90, 171, 204, 0.22), 0 2px 6px rgba(0,0,0,0.06);
+}
 .chip-link { cursor: pointer; }
 
 /* ============================================================
@@ -426,9 +449,14 @@ ul { list-style: none; }
   font-size: 0.78rem;
   color: var(--text-muted);
   width: fit-content;
-  transition: border-color 0.2s, color 0.2s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.2s, color 0.2s;
 }
-.tandem-link:hover { border-color: var(--blue); color: var(--blue); }
+.tandem-link:hover {
+  border-color: rgba(90, 171, 204, 0.6);
+  color: var(--blue);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(90, 171, 204, 0.22), 0 2px 6px rgba(0,0,0,0.06);
+}
 
 .tandem-stack { display: flex; flex-wrap: wrap; gap: 0.3rem; }
 .tandem-stack span {
@@ -454,8 +482,16 @@ ul { list-style: none; }
 }
 .footer-name { font-size: 0.8rem; font-weight: 500; color: var(--text-dim); }
 .footer-links { display: flex; gap: 1.25rem; align-items: center; }
-.footer-links a { font-size: 0.78rem; color: var(--text); transition: color 0.2s; }
-.footer-links a:hover { color: var(--blue); }
+.footer-links a {
+  font-size: 0.78rem;
+  color: var(--text);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.2s;
+  display: inline-block;
+}
+.footer-links a:hover {
+  color: var(--blue);
+  transform: translateY(-2px);
+}
 
 .resume-link {
   background: #1a1a1a;
