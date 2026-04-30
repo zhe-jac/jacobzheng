@@ -31,6 +31,17 @@ function pulseElement(el: HTMLElement): void {
   el.addEventListener('animationend', () => el.classList.remove('focus-pulse'), { once: true });
 }
 
+const leftCol  = document.querySelector('.left-col')  as HTMLElement;
+const rightCol = document.querySelector('.right-col') as HTMLElement;
+let blurTimer: ReturnType<typeof setTimeout>;
+
+function blurCol(toBlur: HTMLElement, toClear: HTMLElement): void {
+  toClear.classList.remove('col-blur');
+  toBlur.classList.add('col-blur');
+  clearTimeout(blurTimer);
+  blurTimer = setTimeout(() => toBlur.classList.remove('col-blur'), 1500);
+}
+
 document.getElementById('btn-about')!.addEventListener('click', () => {
   const aboutSection = document.getElementById('about')!;
   aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -50,17 +61,31 @@ document.getElementById('btn-about')!.addEventListener('click', () => {
       section.addEventListener('animationend', () => section.classList.remove('section-highlight'), { once: true });
     }, 200 + i * 150);
   });
+
+  blurCol(rightCol, leftCol);
 });
 
 document.getElementById('btn-projects')!.addEventListener('click', () => {
   const target = document.getElementById('tandem-card')!;
   if (window.innerWidth <= 720) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   pulseElement(target);
+  blurCol(leftCol, rightCol);
 });
 
 const tandemCard  = document.getElementById('tandem-card') as HTMLElement;
 const tandemVideo = tandemCard.querySelector('video');
 if (tandemVideo) {
   tandemCard.addEventListener('mouseenter', () => tandemVideo.play().catch(() => {}));
-  tandemCard.addEventListener('mouseleave', () => { tandemVideo.pause(); tandemVideo.currentTime = 0; });
+  tandemCard.addEventListener('mouseleave', () => tandemVideo.pause());
+
+  tandemVideo.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (tandemVideo.paused) {
+      tandemVideo.play().catch(() => {});
+      tandemVideo.removeAttribute('controls');
+    } else {
+      tandemVideo.pause();
+      tandemVideo.setAttribute('controls', '');
+    }
+  });
 }

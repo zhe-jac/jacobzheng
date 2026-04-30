@@ -28,7 +28,19 @@ const revealObs = new IntersectionObserver(
 );
 sections.forEach((el) => revealObs.observe(el));
 
-// "about me" button — scroll + highlight text + cascade sections
+// Column blur helpers
+const leftCol = document.querySelector('.left-col');
+const rightCol = document.querySelector('.right-col');
+let blurTimer;
+
+function blurCol(toBlur, toClear) {
+  toClear.classList.remove('col-blur');
+  toBlur.classList.add('col-blur');
+  clearTimeout(blurTimer);
+  blurTimer = setTimeout(() => toBlur.classList.remove('col-blur'), 1500);
+}
+
+// "about me" button — scroll + highlight text + cascade sections + blur projects
 document.getElementById('btn-about').addEventListener('click', () => {
   const aboutSection = document.getElementById('about');
   aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -48,12 +60,13 @@ document.getElementById('btn-about').addEventListener('click', () => {
       section.addEventListener('animationend', () => section.classList.remove('section-highlight'), { once: true });
     }, 200 + i * 150);
   });
+
+  blurCol(rightCol, leftCol);
 });
 
-// "projects" button — pulse highlight on Tandem card
+// "projects" button — pulse highlight on Tandem card + blur about me
 document.getElementById('btn-projects').addEventListener('click', () => {
   const target = document.getElementById('tandem-card');
-  // On mobile, scroll into view
   if (window.innerWidth <= 720) {
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
@@ -61,12 +74,25 @@ document.getElementById('btn-projects').addEventListener('click', () => {
   void target.offsetWidth;
   target.classList.add('focus-pulse');
   target.addEventListener('animationend', () => target.classList.remove('focus-pulse'), { once: true });
+
+  blurCol(leftCol, rightCol);
 });
 
-// Tandem: play video on hover
+// Tandem: play on hover (remember position), click to pause/play + scrub
 const tandemCard = document.getElementById('tandem-card');
 const tandemVideo = tandemCard.querySelector('video');
 if (tandemVideo) {
   tandemCard.addEventListener('mouseenter', () => tandemVideo.play().catch(() => {}));
-  tandemCard.addEventListener('mouseleave', () => { tandemVideo.pause(); tandemVideo.currentTime = 0; });
+  tandemCard.addEventListener('mouseleave', () => tandemVideo.pause());
+
+  tandemVideo.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (tandemVideo.paused) {
+      tandemVideo.play().catch(() => {});
+      tandemVideo.removeAttribute('controls');
+    } else {
+      tandemVideo.pause();
+      tandemVideo.setAttribute('controls', '');
+    }
+  });
 }
