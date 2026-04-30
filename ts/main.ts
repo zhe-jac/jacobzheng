@@ -75,7 +75,10 @@ document.getElementById('btn-projects')!.addEventListener('click', () => {
 const tandemCard  = document.getElementById('tandem-card') as HTMLElement;
 const tandemVideo = tandemCard.querySelector('video');
 if (tandemVideo) {
-  tandemCard.addEventListener('mouseenter', () => tandemVideo.play().catch(() => {}));
+  tandemCard.addEventListener('mouseenter', () => {
+    tandemCard.classList.add('played');
+    tandemVideo.play().catch(() => {});
+  });
   tandemCard.addEventListener('mouseleave', () => tandemVideo.pause());
 
   tandemVideo.addEventListener('click', (e) => {

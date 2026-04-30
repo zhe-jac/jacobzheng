@@ -359,7 +359,8 @@ ul { list-style: none; }
   opacity: 1;
   transition: opacity 0.35s ease;
 }
-.tandem-card:hover .tandem-logo { opacity: 0; }
+.tandem-card:hover .tandem-logo,
+.tandem-card.played .tandem-logo { opacity: 0; }
 
 .tandem-video {
   position: absolute;
@@ -370,7 +371,8 @@ ul { list-style: none; }
   transition: opacity 0.35s ease;
   cursor: pointer;
 }
-.tandem-card:hover .tandem-video { opacity: 1; }
+.tandem-card:hover .tandem-video,
+.tandem-card.played .tandem-video { opacity: 1; }
 
 /* Info area */
 .tandem-info {
