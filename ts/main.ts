@@ -72,6 +72,30 @@ document.getElementById('btn-projects')!.addEventListener('click', () => {
   blurCol(leftCol, rightCol);
 });
 
+// Player sidebar drag
+const playerSidebar = document.getElementById('player-sidebar');
+const playerHandle  = playerSidebar?.querySelector('.player-handle') as HTMLElement | null;
+if (playerSidebar && playerHandle) {
+  let dragging = false, ox = 0, oy = 0;
+  playerHandle.addEventListener('mousedown', (e) => {
+    dragging = true;
+    const r = playerSidebar.getBoundingClientRect();
+    ox = e.clientX - r.left;
+    oy = e.clientY - r.top;
+    playerHandle.style.cursor = 'grabbing';
+    e.preventDefault();
+  });
+  document.addEventListener('mousemove', (e) => {
+    if (!dragging) return;
+    playerSidebar.style.left = (e.clientX - ox) + 'px';
+    playerSidebar.style.top  = (e.clientY - oy) + 'px';
+  });
+  document.addEventListener('mouseup', () => {
+    dragging = false;
+    playerHandle.style.cursor = 'grab';
+  });
+}
+
 const tandemCard  = document.getElementById('tandem-card') as HTMLElement;
 const tandemVideo = tandemCard.querySelector('video');
 if (tandemVideo) {

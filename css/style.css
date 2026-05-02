@@ -478,18 +478,35 @@ ul { list-style: none; }
    ============================================================ */
 .player-sidebar {
   position: fixed;
-  left: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
+  left: 4rem;
+  top: calc(50vh - 310px);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   z-index: 100;
+  user-select: none;
 }
 
-.player-sidebar iframe {
+.player-handle {
+  cursor: grab;
+  margin-bottom: 0;
+}
+.player-handle:active { cursor: grabbing; }
+
+.player-iframe-wrap {
+  width: 400px;
+  height: 572px;
+  resize: both;
+  overflow: hidden;
+  border-radius: 10px;
+  min-width: 200px;
+  min-height: 152px;
+}
+
+.player-iframe-wrap iframe {
   border-radius: 10px;
   display: block;
+  border: none;
 }
 
 /* ============================================================

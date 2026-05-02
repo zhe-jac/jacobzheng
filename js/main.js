@@ -78,6 +78,30 @@ document.getElementById('btn-projects').addEventListener('click', () => {
   blurCol(leftCol, rightCol);
 });
 
+// Player sidebar drag
+const playerSidebar = document.getElementById('player-sidebar');
+const playerHandle  = playerSidebar ? playerSidebar.querySelector('.player-handle') : null;
+if (playerSidebar && playerHandle) {
+  let dragging = false, ox = 0, oy = 0;
+  playerHandle.addEventListener('mousedown', (e) => {
+    dragging = true;
+    const r = playerSidebar.getBoundingClientRect();
+    ox = e.clientX - r.left;
+    oy = e.clientY - r.top;
+    playerHandle.style.cursor = 'grabbing';
+    e.preventDefault();
+  });
+  document.addEventListener('mousemove', (e) => {
+    if (!dragging) return;
+    playerSidebar.style.left = (e.clientX - ox) + 'px';
+    playerSidebar.style.top  = (e.clientY - oy) + 'px';
+  });
+  document.addEventListener('mouseup', () => {
+    dragging = false;
+    playerHandle.style.cursor = 'grab';
+  });
+}
+
 // Tandem: play on hover (remember position), click to pause/play + scrub
 const tandemCard = document.getElementById('tandem-card');
 const tandemVideo = tandemCard.querySelector('video');
