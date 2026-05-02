@@ -78,23 +78,16 @@ document.getElementById('btn-projects').addEventListener('click', () => {
   blurCol(leftCol, rightCol);
 });
 
-// Player sidebar drag
+// Player sidebar drag — attach only to drag bar so iframe stays interactive
 const playerSidebar = document.getElementById('player-sidebar');
-if (playerSidebar) {
+const playerDragBar = document.getElementById('player-drag-bar');
+if (playerSidebar && playerDragBar) {
   let dragging = false, ox = 0, oy = 0;
-  const wrap = playerSidebar.querySelector('.player-iframe-wrap');
-
-  playerSidebar.addEventListener('mousedown', (e) => {
-    // Skip if clicking the resize corner (bottom-right 20px of wrap)
-    if (wrap) {
-      const r = wrap.getBoundingClientRect();
-      if (e.clientX > r.right - 20 && e.clientY > r.bottom - 20) return;
-    }
+  playerDragBar.addEventListener('mousedown', (e) => {
     dragging = true;
     const r = playerSidebar.getBoundingClientRect();
     ox = e.clientX - r.left;
     oy = e.clientY - r.top;
-    playerSidebar.classList.add('dragging');
     e.preventDefault();
   });
   document.addEventListener('mousemove', (e) => {
@@ -102,10 +95,7 @@ if (playerSidebar) {
     playerSidebar.style.left = (e.clientX - ox) + 'px';
     playerSidebar.style.top  = (e.clientY - oy) + 'px';
   });
-  document.addEventListener('mouseup', () => {
-    dragging = false;
-    playerSidebar.classList.remove('dragging');
-  });
+  document.addEventListener('mouseup', () => { dragging = false; });
 }
 
 // Tandem: play on hover (remember position), click to pause/play + scrub

@@ -487,13 +487,17 @@ ul { list-style: none; }
   user-select: none;
 }
 
-.player-sidebar { cursor: grab; }
-.player-sidebar.dragging { cursor: grabbing; }
-
-.player-handle { margin-bottom: 0; }
+.player-drag-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px 6px;
+  cursor: grab;
+}
+.player-drag-bar:active { cursor: grabbing; }
+.player-drag-hint { color: var(--text-dim); font-size: 1rem; line-height: 1; }
 
 .player-iframe-wrap {
-  position: relative;
   width: 400px;
   height: 572px;
   resize: both;
@@ -502,14 +506,6 @@ ul { list-style: none; }
   min-width: 200px;
   min-height: 152px;
 }
-
-.player-drag-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: none;
-}
-.player-sidebar.dragging .player-drag-overlay { display: block; }
 
 .player-iframe-wrap iframe {
   border-radius: 10px;
