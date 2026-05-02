@@ -491,18 +491,29 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 4px 6px;
+  padding: 6px 10px;
   cursor: grab;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px 8px 0 0;
+  border-bottom: none;
+  transition: background 0.2s;
 }
+.player-drag-bar:hover { background: var(--bg-2); }
 .player-drag-bar:active { cursor: grabbing; }
-.player-drag-hint { color: var(--text-dim); font-size: 1rem; line-height: 1; }
+.player-drag-bar .row-label { margin-bottom: 0; }
+.player-drag-icon { color: var(--text-dim); flex-shrink: 0; }
+
+.player-iframe-wrap {
+  border-radius: 0 0 10px 10px !important;
+}
 
 .player-iframe-wrap {
   width: 400px;
   height: 572px;
   resize: both;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 0 0 10px 10px;
   min-width: 200px;
   min-height: 152px;
 }
