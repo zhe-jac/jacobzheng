@@ -74,15 +74,20 @@ document.getElementById('btn-projects')!.addEventListener('click', () => {
 
 // Player sidebar drag
 const playerSidebar = document.getElementById('player-sidebar');
-const playerHandle  = playerSidebar?.querySelector('.player-handle') as HTMLElement | null;
-if (playerSidebar && playerHandle) {
+if (playerSidebar) {
   let dragging = false, ox = 0, oy = 0;
-  playerHandle.addEventListener('mousedown', (e) => {
+  const wrap = playerSidebar.querySelector('.player-iframe-wrap');
+
+  playerSidebar.addEventListener('mousedown', (e) => {
+    if (wrap) {
+      const r = wrap.getBoundingClientRect();
+      if (e.clientX > r.right - 20 && e.clientY > r.bottom - 20) return;
+    }
     dragging = true;
     const r = playerSidebar.getBoundingClientRect();
     ox = e.clientX - r.left;
     oy = e.clientY - r.top;
-    playerHandle.style.cursor = 'grabbing';
+    playerSidebar.classList.add('dragging');
     e.preventDefault();
   });
   document.addEventListener('mousemove', (e) => {
@@ -92,7 +97,7 @@ if (playerSidebar && playerHandle) {
   });
   document.addEventListener('mouseup', () => {
     dragging = false;
-    playerHandle.style.cursor = 'grab';
+    playerSidebar.classList.remove('dragging');
   });
 }
 
