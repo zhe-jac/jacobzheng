@@ -509,13 +509,13 @@ ul { list-style: none; }
 }
 
 .player-iframe-wrap {
-  width: 400px;
-  height: 572px;
+  width: 320px;
+  height: 152px;
   resize: both;
   overflow: hidden;
   border-radius: 0 0 10px 10px;
   min-width: 200px;
-  min-height: 152px;
+  min-height: 80px;
 }
 
 .player-iframe-wrap iframe {
