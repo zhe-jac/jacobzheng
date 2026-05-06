@@ -510,8 +510,8 @@ ul { list-style: none; }
 }
 
 .player-iframe-wrap {
-  width: 240px;
-  height: 152px;
+  width: 260px;
+  height: 352px;
   resize: both;
   overflow: hidden;
   border-radius: 0 0 10px 10px;
