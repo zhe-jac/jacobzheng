@@ -66,7 +66,7 @@ document.getElementById('btn-about')!.addEventListener('click', () => {
 });
 
 document.getElementById('btn-projects')!.addEventListener('click', () => {
-  const target = document.getElementById('tandem-card')!;
+  const target = document.getElementById('projects-list')!;
   if (window.innerWidth <= 720) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   pulseElement(target);
   blurCol(leftCol, rightCol);
@@ -92,23 +92,25 @@ if (playerSidebar && playerDragBar) {
   document.addEventListener('mouseup', () => { dragging = false; });
 }
 
-const tandemCard  = document.getElementById('tandem-card') as HTMLElement;
-const tandemVideo = tandemCard.querySelector('video');
-if (tandemVideo) {
-  tandemCard.addEventListener('mouseenter', () => {
-    tandemCard.classList.add('played');
-    tandemVideo.play().catch(() => {});
-  });
-  tandemCard.addEventListener('mouseleave', () => tandemVideo.pause());
+document.querySelectorAll<HTMLElement>('.project-card').forEach((card) => {
+  const video = card.querySelector('video');
+  if (video) {
+    card.addEventListener('mouseenter', () => {
+      card.classList.add('played');
+      video.play().catch(() => {});
+    });
+    card.addEventListener('mouseleave', () => video.pause());
 
-  tandemVideo.addEventListener('click', (e) => {
-    e.stopPropagation();
-    if (tandemVideo.paused) {
-      tandemVideo.play().catch(() => {});
-      tandemVideo.removeAttribute('controls');
-    } else {
-      tandemVideo.pause();
-      tandemVideo.setAttribute('controls', '');
-    }
-  });
-}
+    video.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (video.paused) {
+        video.play().catch(() => {});
+        video.removeAttribute('controls');
+      } else {
+        video.pause();
+        video.setAttribute('controls', '');
+      }
+    });
+  }
+
+});

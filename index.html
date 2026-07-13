@@ -122,64 +122,125 @@
       <div class="right-col">
         <div class="row-label">projects</div>
 
-        <div class="tandem-card" id="tandem-card">
-          <div class="tandem-inner">
+        <div class="projects-list" id="projects-list">
 
-            <div class="tandem-visual">
-              <img class="tandem-logo" src="assets/tandem-logo.png" alt="Tandem" />
-              <video class="tandem-video" muted loop playsinline preload="none">
-                <source src="videos/Tandem.mp4" type="video/mp4" />
-              </video>
-            </div>
+          <div class="project-card project-card--mono" id="provenance-card">
+            <div class="project-inner">
 
-            <div class="tandem-info">
-              <div class="tandem-name">tandem</div>
-
-              <div class="tandem-block">
-                <div class="tandem-label">about</div>
-                <ul class="tandem-about">
-                  <li>real-time AI tutor that watches your whiteboard, speaks to you, and guides you through problems</li>
-                  <li>interrupt the AI mid-sentence and it pivots to your new thought</li>
-                  <li>tracks intermediate steps, not just final answers, catches mistakes as you work</li>
-                </ul>
+              <div class="project-visual">
+                <img class="project-logo" src="assets/provenance-logo.png" alt="Provenance" />
+                <video class="project-video" muted loop playsinline preload="none">
+                  <source src="videos/Provenance.mp4" type="video/mp4" />
+                </video>
               </div>
 
-              <div class="tandem-block">
-                <div class="tandem-label">links</div>
-                <div class="tandem-links">
-                  <a href="https://github.com/zhe-jac/tandem" target="_blank" rel="noopener" class="tandem-link">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-                    </svg>
-                    GitHub
-                  </a>
-                  <a href="https://devpost.com/software/tandem-jbmp0n" target="_blank" rel="noopener" class="tandem-link">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M6.002 1.61L0 12.004 6.002 22.4h11.996L24 12.004 17.998 1.61zm1.593 16.526l-3.998-6.132 3.998-6.13h8.81l3.998 6.13-3.998 6.132z"/>
-                    </svg>
-                    Devpost
-                  </a>
+              <div class="project-info">
+                <div class="project-name">provenance</div>
+
+                <div class="project-block">
+                  <div class="project-label">about</div>
+                  <ul class="project-about">
+                    <li>won at cuHacking</li>
+                    <li>camera-to-chain photo authenticity — every photo is signed at the moment of capture and anchored to the Solana blockchain</li>
+                    <li>verify anywhere by deriving the on-chain record straight from a photo's hash, no database trust required</li>
+                    <li>survives recompression via perceptual hashing, so a resized repost still traces back to its verified original</li>
+                  </ul>
                 </div>
-              </div>
 
-              <div class="tandem-block">
-                <div class="tandem-label">stack</div>
-                <div class="tandem-stack">
-                  <span>Next.js</span>
-                  <span>React</span>
-                  <span>TailwindCSS</span>
-                  <span>TLDraw</span>
-                  <span>FastAPI</span>
-                  <span>Vertex AI Gemini</span>
-                  <span>ElevenLabs</span>
-                  <span>MediaPipe</span>
+                <div class="project-block">
+                  <div class="project-label">links</div>
+                  <div class="project-links">
+                    <a href="https://github.com/zhe-jac/provenance" target="_blank" rel="noopener" class="project-link">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                      </svg>
+                      GitHub
+                    </a>
+                    <a href="https://devpost.com/software/provenance-6eo7rs?ref_content=my-projects-tab&ref_feature=my_projects" target="_blank" rel="noopener" class="project-link">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6.002 1.61L0 12.004 6.002 22.4h11.996L24 12.004 17.998 1.61zm1.593 16.526l-3.998-6.132 3.998-6.13h8.81l3.998 6.13-3.998 6.132z"/>
+                      </svg>
+                      Devpost
+                    </a>
+                  </div>
                 </div>
-              </div>
 
+                <div class="project-block">
+                  <div class="project-label">stack</div>
+                  <div class="project-stack">
+                    <span>Expo / React Native</span>
+                    <span>TypeScript</span>
+                    <span>Solana</span>
+                    <span>Anchor (Rust)</span>
+                    <span>Node.js</span>
+                    <span>MongoDB Atlas</span>
+                    <span>NativeWind</span>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
-        </div>
 
+          <div class="project-card" id="tandem-card">
+            <div class="project-inner">
+
+              <div class="project-visual">
+                <img class="project-logo" src="assets/tandem-logo.png" alt="Tandem" />
+                <video class="project-video" muted loop playsinline preload="none">
+                  <source src="videos/Tandem.mp4" type="video/mp4" />
+                </video>
+              </div>
+
+              <div class="project-info">
+                <div class="project-name">tandem</div>
+
+                <div class="project-block">
+                  <div class="project-label">about</div>
+                  <ul class="project-about">
+                    <li>real-time AI tutor that watches your whiteboard, speaks to you, and guides you through problems</li>
+                    <li>interrupt the AI mid-sentence and it pivots to your new thought</li>
+                    <li>tracks intermediate steps, not just final answers, catches mistakes as you work</li>
+                  </ul>
+                </div>
+
+                <div class="project-block">
+                  <div class="project-label">links</div>
+                  <div class="project-links">
+                    <a href="https://github.com/zhe-jac/tandem" target="_blank" rel="noopener" class="project-link">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                      </svg>
+                      GitHub
+                    </a>
+                    <a href="https://devpost.com/software/tandem-jbmp0n" target="_blank" rel="noopener" class="project-link">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6.002 1.61L0 12.004 6.002 22.4h11.996L24 12.004 17.998 1.61zm1.593 16.526l-3.998-6.132 3.998-6.13h8.81l3.998 6.13-3.998 6.132z"/>
+                      </svg>
+                      Devpost
+                    </a>
+                  </div>
+                </div>
+
+                <div class="project-block">
+                  <div class="project-label">stack</div>
+                  <div class="project-stack">
+                    <span>Next.js</span>
+                    <span>React</span>
+                    <span>TailwindCSS</span>
+                    <span>TLDraw</span>
+                    <span>FastAPI</span>
+                    <span>Vertex AI Gemini</span>
+                    <span>ElevenLabs</span>
+                    <span>MediaPipe</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
 
       </div>
     </div>

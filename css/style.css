@@ -349,9 +349,16 @@ ul { list-style: none; }
 .exp-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; }
 
 /* ============================================================
-   TANDEM CARD
+   PROJECT CARDS
    ============================================================ */
-.tandem-card {
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-radius: 10px;
+}
+
+.project-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 10px;
@@ -360,26 +367,30 @@ ul { list-style: none; }
   cursor: default;
 }
 
-.tandem-card:hover {
+.project-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 56px rgba(90, 171, 204, 0.32), 0 6px 18px rgba(0,0,0,0.09);
   border-color: rgba(90, 171, 204, 0.6);
 }
 
-.tandem-inner {
+.project-inner {
   display: flex;
   flex-direction: column;
 }
 
 /* Video visual */
-.tandem-visual {
+.project-visual {
   aspect-ratio: 16 / 9;
   background: linear-gradient(135deg, hsl(210deg, 40%, 30%) 0%, hsl(250deg, 25%, 18%) 100%);
   position: relative;
   overflow: hidden;
 }
 
-.tandem-logo {
+.project-card--mono .project-visual {
+  background: linear-gradient(135deg, hsl(0deg, 0%, 45%) 0%, hsl(0deg, 0%, 8%) 100%);
+}
+
+.project-logo {
   position: absolute;
   inset: 0;
   width: 100%; height: 100%;
@@ -388,10 +399,10 @@ ul { list-style: none; }
   opacity: 1;
   transition: opacity 0.35s ease;
 }
-.tandem-card:hover .tandem-logo,
-.tandem-card.played .tandem-logo { opacity: 0; }
+.project-card:has(.project-video):hover .project-logo,
+.project-card.played .project-logo { opacity: 0; }
 
-.tandem-video {
+.project-video {
   position: absolute;
   inset: 0;
   width: 100%; height: 100%;
@@ -400,27 +411,27 @@ ul { list-style: none; }
   transition: opacity 0.35s ease;
   cursor: pointer;
 }
-.tandem-card:hover .tandem-video,
-.tandem-card.played .tandem-video { opacity: 1; }
+.project-card:has(.project-video):hover .project-video,
+.project-card.played .project-video { opacity: 1; }
 
 /* Info area */
-.tandem-info {
+.project-info {
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
 }
 
-.tandem-name {
+.project-name {
   font-size: 0.97rem;
   font-weight: 600;
   color: var(--text);
   letter-spacing: -0.2px;
 }
 
-.tandem-block { display: flex; flex-direction: column; gap: 0.45rem; }
+.project-block { display: flex; flex-direction: column; gap: 0.45rem; }
 
-.tandem-label {
+.project-label {
   font-size: 0.64rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -428,23 +439,23 @@ ul { list-style: none; }
   text-transform: lowercase;
 }
 
-.tandem-about { display: flex; flex-direction: column; gap: 0.4rem; }
-.tandem-about li {
+.project-about { display: flex; flex-direction: column; gap: 0.4rem; }
+.project-about li {
   font-size: 0.8rem;
   color: var(--text-muted);
   line-height: 1.5;
   padding-left: 1rem;
   position: relative;
 }
-.tandem-about li::before {
+.project-about li::before {
   content: '_';
   position: absolute;
   left: 0;
   color: var(--text-dim);
 }
 
-.tandem-links { display: flex; flex-direction: column; gap: 0.35rem; }
-.tandem-link {
+.project-links { display: flex; flex-direction: column; gap: 0.35rem; }
+.project-link {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
@@ -457,15 +468,15 @@ ul { list-style: none; }
   width: fit-content;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.2s, color 0.2s;
 }
-.tandem-link:hover {
+.project-link:hover {
   border-color: rgba(90, 171, 204, 0.6);
   color: var(--blue);
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(90, 171, 204, 0.22), 0 2px 6px rgba(0,0,0,0.06);
 }
 
-.tandem-stack { display: flex; flex-wrap: wrap; gap: 0.3rem; }
-.tandem-stack span {
+.project-stack { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.project-stack span {
   padding: 2px 8px;
   background: var(--bg-2);
   border: 1px solid var(--border);
