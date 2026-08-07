@@ -28,7 +28,12 @@ function pulseElement(el) {
 const leftCol = document.querySelector('.left-col');
 const rightCol = document.querySelector('.right-col');
 let blurTimer;
+const isMobile = () => window.innerWidth <= 720;
 function blurCol(toBlur, toClear) {
+    // one stacked column on phones — blurring the part you just scrolled past
+    // only gets in the way
+    if (isMobile())
+        return;
     toClear.classList.remove('col-blur');
     toBlur.classList.add('col-blur');
     clearTimeout(blurTimer);
@@ -54,32 +59,14 @@ document.getElementById('btn-about').addEventListener('click', () => {
     blurCol(rightCol, leftCol);
 });
 document.getElementById('btn-projects').addEventListener('click', () => {
-    const target = document.getElementById('projects-list');
-    if (window.innerWidth <= 720)
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    pulseElement(target);
+    const list = document.getElementById('projects-list');
+    // on phones the button acts as navigation: jump to the projects heading
+    if (isMobile()) {
+        document.getElementById('projects').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    pulseElement(list);
     blurCol(leftCol, rightCol);
 });
-// Player sidebar drag — attach only to drag bar so iframe stays interactive
-const playerSidebar = document.getElementById('player-sidebar');
-const playerDragBar = document.getElementById('player-drag-bar');
-if (playerSidebar && playerDragBar) {
-    let dragging = false, ox = 0, oy = 0;
-    playerDragBar.addEventListener('mousedown', (e) => {
-        dragging = true;
-        const r = playerSidebar.getBoundingClientRect();
-        ox = e.clientX - r.left;
-        oy = e.clientY - r.top;
-        e.preventDefault();
-    });
-    document.addEventListener('mousemove', (e) => {
-        if (!dragging)
-            return;
-        playerSidebar.style.left = (e.clientX - ox) + 'px';
-        playerSidebar.style.top = (e.clientY - oy) + 'px';
-    });
-    document.addEventListener('mouseup', () => { dragging = false; });
-}
 document.querySelectorAll('.project-card').forEach((card) => {
     const video = card.querySelector('video');
     if (video) {

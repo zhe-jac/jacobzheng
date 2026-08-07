@@ -100,7 +100,6 @@ ul { list-style: none; }
   opacity: 0;
   transition: opacity 0.6s ease;
   height: 100%;
-  padding-left: 300px;
 }
 .app.visible { opacity: 1; }
 
@@ -486,57 +485,6 @@ ul { list-style: none; }
 }
 
 /* ============================================================
-   PLAYER SIDEBAR
-   ============================================================ */
-.player-sidebar {
-  position: fixed;
-  left: 4rem;
-  top: calc(50vh - 310px);
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  z-index: 100;
-  user-select: none;
-}
-
-.player-drag-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 6px 10px;
-  cursor: grab;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 8px 8px 0 0;
-  border-bottom: none;
-  transition: background 0.2s;
-}
-.player-drag-bar:hover { background: var(--bg-2); }
-.player-drag-bar:active { cursor: grabbing; }
-.player-drag-bar .row-label { margin-bottom: 0; }
-.player-drag-icon { color: var(--text-dim); flex-shrink: 0; }
-
-.player-iframe-wrap {
-  border-radius: 0 0 10px 10px !important;
-}
-
-.player-iframe-wrap {
-  width: 260px;
-  height: 352px;
-  resize: both;
-  overflow: hidden;
-  border-radius: 0 0 10px 10px;
-  min-width: 200px;
-  min-height: 80px;
-}
-
-.player-iframe-wrap iframe {
-  border-radius: 10px;
-  display: block;
-  border: none;
-}
-
-/* ============================================================
    FOOTER
    ============================================================ */
 .footer {
@@ -582,15 +530,47 @@ ul { list-style: none; }
    ============================================================ */
 @media (max-width: 720px) {
   html, body { height: auto; overflow-x: hidden; overflow-y: auto; }
-  .app { height: auto; padding-left: 0; }
+  html { scroll-behavior: smooth; }
+  .app { height: auto; }
+
+  /* single stack: hero + about + the rest first, projects after, footer last */
   .layout {
-    grid-template-columns: 1fr;
-    padding: 2rem 5%;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 5% 3rem;
     gap: 2rem;
     height: auto;
+    max-width: none;
   }
-  .left-col, .right-col {
+
+  /* promote the left column's children into the stack so the
+     footer can sit below projects instead of above them */
+  .left-col {
+    display: contents;
+  }
+
+  .right-col {
     overflow-y: visible;
     padding: 0;
+    order: 2;
+    scroll-margin-top: 1.25rem;
+  }
+
+  .footer { order: 3; }
+
+  /* full-width tap targets */
+  .hero-actions { gap: 0.6rem; }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-ghost {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    font-size: 0.88rem;
+  }
+
+  /* no hover on touch — keep cards flat instead of half-lifted */
+  .project-card:hover,
+  .about-card:hover,
+  .info-card:hover {
+    transform: none;
   }
 }
