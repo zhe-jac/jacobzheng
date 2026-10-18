@@ -333,6 +333,24 @@ ul { list-style: none; }
 
 
 /* ============================================================
+   MATH WEBRING
+   ============================================================ */
+.webring {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.9rem;
+}
+.webring a {
+  display: inline-flex;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  transition: transform 0.3s ease, color 0.2s;
+}
+.webring a:hover { color: var(--blue); transform: translateY(-2px); }
+.webring img { width: 24px; height: auto; }
+
+/* ============================================================
    SPOTIFY PLAYER
    ============================================================ */
 .spotify-player {
