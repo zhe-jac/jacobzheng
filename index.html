@@ -20,87 +20,69 @@
 
   <!-- APP -->
   <div id="app" class="app">
+    <main class="page">
 
-    <div class="layout">
+      <header class="hero">
+        <h1 class="hero-name">jacob zheng</h1>
+        <p class="hero-sub">uw math 2030</p>
+        <nav class="hero-links">
+          <a href="mailto:jacob.zheng2007@gmail.com">email</a>
+          <a href="https://www.linkedin.com/in/zhe-jac/" target="_blank" rel="noopener">linkedin</a>
+          <a href="https://github.com/zhe-jac" target="_blank" rel="noopener">github</a>
+          <a href="resume.pdf" target="_blank" rel="noopener" class="resume-link">resume</a>
+        </nav>
+      </header>
 
-      <!-- LEFT: personal info -->
-      <div class="left-col">
-
-        <div class="hero">
-          <h1 class="hero-name">jacob zheng</h1>
-          <p class="hero-bio">hi i'm jacob!</p>
-          <div class="hero-actions">
-            <button class="btn-primary" id="btn-about">about me</button>
-            <button class="btn-ghost" id="btn-projects">projects</button>
-          </div>
-        </div>
-
-        <section id="about" class="info-section">
-          <div class="row-label">about me</div>
-          <div class="about-card">
-            <p>i'm a math student at waterloo pursuing software development.</p>
-          </div>
-        </section>
-
-        <section id="university" class="info-section">
-          <div class="row-label">education</div>
-          <div class="info-card">
-            <span class="info-card-icon">🎓</span>
-            <div>
-              <div class="info-card-title">University of Waterloo</div>
-              <div class="info-card-sub">Bachelor of Mathematics, Honours, Co-op &middot; Apr 2030</div>
-            </div>
-          </div>
-        </section>
-
-        <section id="interests" class="info-section">
-          <div class="row-label">what i'm into</div>
-          <div class="chips">
-            <a href="https://open.spotify.com/user/31li3mitoxyra4fw32yxabeybv7q" target="_blank" rel="noopener" class="chip chip-link">🎵 music</a>
-            <span class="chip">🏐 volleyball</span>
-            <span class="chip">♠️ poker</span>
-          </div>
-        </section>
-
-        <section id="experience" class="info-section">
-          <div class="row-label">experience</div>
-          <div class="exp-list">
-            <div class="exp-item">
-              <div class="exp-meta">
-                <span class="exp-date">Sept 2022 – Aug 2025</span>
-                <span class="exp-org">Barrhaven Tennis Club</span>
-              </div>
-              <div class="exp-role">Court Attendant</div>
-              <p class="exp-desc">Supported operations for a 250-member facility, assisting 50+ members per shift and facilitating bookings, events, and tournaments.</p>
-            </div>
-            <div class="exp-item">
-              <div class="exp-meta">
-                <span class="exp-date">Dec 2022 – Jan 2025</span>
-                <span class="exp-org">Camp Fortune</span>
-              </div>
-              <div class="exp-role">Ski Instructor</div>
-              <p class="exp-desc">Instructed 3 daily lessons to groups of 10 students, adapting to varied learning styles while maintaining safety standards and CSIA Level 1 Certification.</p>
-            </div>
-          </div>
-        </section>
-
-        <footer class="footer">
-          <p class="footer-name">jacob zheng</p>
-          <div class="footer-links">
-            <a href="mailto:jacob.zheng2007@gmail.com">email</a>
-            <a href="https://www.linkedin.com/in/zhe-jac/" target="_blank" rel="noopener">linkedin</a>
-            <a href="https://github.com/zhe-jac" target="_blank" rel="noopener">github</a>
-            <a href="resume.pdf" target="_blank" rel="noopener" class="resume-link">resume</a>
-          </div>
-        </footer>
-
-      </div>
-
-      <!-- RIGHT: projects (sticky) -->
-      <div class="right-col" id="projects">
+      <section class="projects" id="projects">
         <div class="row-label">projects</div>
 
         <div class="projects-list" id="projects-list">
+
+          <div class="project-card project-card--text" id="traffic-card">
+            <div class="project-inner">
+
+              <div class="project-visual">
+                <span class="project-visual-text">toronto traffic sandbox</span>
+              </div>
+
+              <div class="project-info">
+                <div class="project-name">toronto traffic sandbox</div>
+
+                <div class="project-block">
+                  <div class="project-label">about</div>
+                  <ul class="project-about">
+                    <li>simulates road closures across 42,987 Toronto road segments</li>
+                    <li>renders traffic in 2D/3D with Mapbox GL and deck.gl, modeling congestion with BPR functions</li>
+                    <li>one-way-aware rerouting API that uses Gemini to redistribute diverted traffic</li>
+                  </ul>
+                </div>
+
+                <div class="project-block">
+                  <div class="project-label">links</div>
+                  <div class="project-links">
+                    <a href="https://github.com/zhe-jac/htv" target="_blank" rel="noopener" class="project-link">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                      </svg>
+                      GitHub
+                    </a>
+                  </div>
+                </div>
+
+                <div class="project-block">
+                  <div class="project-label">stack</div>
+                  <div class="project-stack">
+                    <span>Next.js</span>
+                    <span>TypeScript</span>
+                    <span>Mapbox GL</span>
+                    <span>deck.gl</span>
+                    <span>Gemini</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
 
           <div class="project-card project-card--mono" id="provenance-card">
             <div class="project-inner">
@@ -279,12 +261,16 @@
           </div>
 
         </div>
+      </section>
 
-      </div>
+    </main>
+
+    <div class="spotify-player">
+      <div id="spotify-embed"></div>
     </div>
   </div>
 
-  <audio id="intro-sound" src="sounds/netflix.mp3" preload="auto"></audio>
   <script src="js/main.js"></script>
+  <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 </body>
 </html>

@@ -20,9 +20,9 @@ html { height: 100%; }
 body {
   font-family: var(--ff);
   line-height: 1.6;
-  overflow: hidden;
   -webkit-font-smoothing: antialiased;
-  height: 100%;
+  min-height: 100%;
+  background-attachment: fixed;
   background: linear-gradient(145deg, #f0f0f0 0%, #e3e7ec 100%);
 }
 
@@ -93,115 +93,80 @@ ul { list-style: none; }
   pointer-events: none;
 }
 
+
 /* ============================================================
    APP
    ============================================================ */
 .app {
   opacity: 0;
   transition: opacity 0.6s ease;
-  height: 100%;
 }
 .app.visible { opacity: 1; }
 
 /* ============================================================
-   LAYOUT — two column
+   PAGE — single centered column
    ============================================================ */
-.layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4.5rem;
-  padding: 0 4%;
-  max-width: 1100px;
+.page {
+  max-width: 560px;
   margin: 0 auto;
-  height: 100%;
-}
-
-/* LEFT column — independent scroll */
-.left-col {
+  padding: 5rem 1.25rem 5rem;
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
-  overflow-y: auto;
-  padding: 4rem 0.5rem 4rem 0;
-  transition: filter 0.4s ease, opacity 0.4s ease;
-}
-
-/* RIGHT column — independent scroll */
-.right-col {
-  overflow-y: auto;
-  padding: 4rem 0 4rem;
-  transition: filter 0.4s ease, opacity 0.4s ease;
-}
-
-.col-blur {
-  filter: blur(4px);
-  opacity: 0.35;
-  pointer-events: none;
+  gap: 3.5rem;
 }
 
 /* ============================================================
    HERO
    ============================================================ */
-.hero { display: flex; flex-direction: column; gap: 0.5rem; }
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.4rem;
+}
 
 .hero-name {
-  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-size: clamp(2.2rem, 7vw, 3.2rem);
   font-weight: 700;
   color: var(--text);
   letter-spacing: -1.5px;
   line-height: 1.1;
 }
 
-.hero-bio {
-  font-size: 1rem;
+.hero-sub {
+  font-size: 0.95rem;
   color: var(--text-muted);
-  margin-bottom: 0.5rem;
 }
 
-.hero-actions {
+.hero-links {
   display: flex;
-  gap: 0.5rem;
-  margin-top: 0.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 0.9rem;
 }
-
-.btn-primary {
-  background: var(--blue);
-  color: #fff;
-  font-family: var(--ff);
-  font-weight: 600;
-  font-size: 0.82rem;
-  padding: 0.55rem 1.3rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  letter-spacing: 0.01em;
-  box-shadow: 0 2px 8px rgba(90, 171, 204, 0.25);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.2s;
+.hero-links a {
+  font-size: 0.8rem;
+  color: var(--text);
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.2s;
 }
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(90, 171, 204, 0.4), 0 2px 6px rgba(0,0,0,0.08);
-}
-
-.btn-ghost {
-  background: var(--bg-card);
-  color: var(--text-muted);
-  font-family: var(--ff);
-  font-weight: 500;
-  font-size: 0.82rem;
-  padding: 0.55rem 1.3rem;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  cursor: pointer;
-  letter-spacing: 0.01em;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.2s, color 0.2s;
-}
-.btn-ghost:hover {
-  border-color: rgba(90, 171, 204, 0.6);
+.hero-links a:hover {
   color: var(--blue);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(90, 171, 204, 0.2), 0 2px 6px rgba(0,0,0,0.06);
 }
+
+.resume-link {
+  background: #1a1a1a;
+  color: #fff !important;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.resume-link:hover { background: #333; color: #fff !important; }
 
 /* ============================================================
    SECTION LABELS
@@ -211,141 +176,10 @@ ul { list-style: none; }
   font-weight: 600;
   letter-spacing: 0.08em;
   color: var(--blue);
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.9rem;
   text-transform: lowercase;
+  text-align: center;
 }
-
-/* Scroll-reveal */
-.info-section {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-.info-section.revealed { opacity: 1; transform: none; }
-
-/* Text highlight (about me button) */
-@keyframes textHighlight {
-  0%, 100% { background-color: transparent; }
-  15%, 85%  { background-color: rgba(90, 171, 204, 0.2); }
-}
-.text-highlight {
-  animation: textHighlight 1.8s ease forwards;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-/* Cascade section highlight */
-@keyframes sectionGlow {
-  0%, 100% { background-color: transparent; }
-  40%, 70%  { background-color: rgba(90, 171, 204, 0.07); }
-}
-.section-highlight {
-  animation: sectionGlow 1.2s ease forwards;
-  border-radius: 8px;
-}
-
-/* Tandem focus pulse (projects button) */
-@keyframes focusPulse {
-  0%   { box-shadow: 0 0 0 0 rgba(90, 171, 204, 0); }
-  35%  { box-shadow: 0 0 0 5px rgba(90, 171, 204, 0.35); }
-  100% { box-shadow: 0 0 0 0 rgba(90, 171, 204, 0); }
-}
-.focus-pulse { animation: focusPulse 1.1s ease forwards; border-radius: 10px; }
-
-/* ============================================================
-   ABOUT
-   ============================================================ */
-.about-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-left: 2px solid var(--blue);
-  border-radius: 8px;
-  padding: 1rem 1.25rem;
-  font-size: 0.91rem;
-  color: var(--text-muted);
-  line-height: 1.75;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.about-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 36px rgba(90, 171, 204, 0.25), 0 4px 12px rgba(0,0,0,0.07);
-}
-
-/* ============================================================
-   UNIVERSITY
-   ============================================================ */
-.info-card {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 0.85rem 1.2rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-.info-card:hover {
-  border-color: rgba(90, 171, 204, 0.6);
-  transform: translateY(-4px);
-  box-shadow: 0 14px 36px rgba(90, 171, 204, 0.25), 0 4px 12px rgba(0,0,0,0.07);
-}
-
-.info-card-icon { font-size: 1.4rem; }
-.info-card-title { font-size: 0.88rem; font-weight: 600; color: var(--text); }
-.info-card-sub   { font-size: 0.78rem; color: var(--text-muted); margin-top: 1px; }
-
-/* ============================================================
-   CHIPS
-   ============================================================ */
-.chips { display: flex; flex-wrap: wrap; gap: 6px; }
-
-.chip {
-  padding: 5px 13px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  cursor: default;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.2s, color 0.2s;
-}
-.chip:hover {
-  border-color: rgba(90, 171, 204, 0.6);
-  color: var(--blue);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(90, 171, 204, 0.22), 0 2px 6px rgba(0,0,0,0.06);
-}
-.chip-link { cursor: pointer; }
-
-/* ============================================================
-   EXPERIENCE
-   ============================================================ */
-.exp-list {
-  border-left: 1px solid var(--border);
-  padding-left: 1.25rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.exp-item { position: relative; padding-bottom: 1.5rem; }
-.exp-item:last-child { padding-bottom: 0; }
-
-.exp-item::before {
-  content: '';
-  position: absolute;
-  left: -1.38rem;
-  top: 7px;
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--blue);
-  border: 1.5px solid var(--bg-card);
-}
-
-.exp-meta { display: flex; gap: 0.75rem; margin-bottom: 2px; }
-.exp-date { font-size: 0.7rem; color: var(--text-dim); font-family: 'Courier New', monospace; }
-.exp-org  { font-size: 0.7rem; color: var(--blue); font-weight: 500; }
-.exp-role { font-size: 0.88rem; font-weight: 600; color: var(--text); margin-bottom: 3px; }
-.exp-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; }
 
 /* ============================================================
    PROJECT CARDS
@@ -354,7 +188,6 @@ ul { list-style: none; }
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  border-radius: 10px;
 }
 
 .project-card {
@@ -484,40 +317,36 @@ ul { list-style: none; }
   color: var(--text-muted);
 }
 
-/* ============================================================
-   FOOTER
-   ============================================================ */
-.footer {
+/* Card with a text title instead of a logo */
+.project-card--text .project-visual {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
-  flex-wrap: wrap;
-  gap: 0.75rem;
+  justify-content: center;
+  background: linear-gradient(135deg, hsl(197deg, 45%, 62%) 0%, hsl(210deg, 35%, 32%) 100%);
 }
-.footer-name { font-size: 0.8rem; font-weight: 500; color: var(--text-dim); }
-.footer-links { display: flex; gap: 1.25rem; align-items: center; }
-.footer-links a {
-  font-size: 0.78rem;
-  color: var(--text);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.2s;
-  display: inline-block;
-}
-.footer-links a:hover {
-  color: var(--blue);
-  transform: translateY(-2px);
+.project-visual-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.85);
 }
 
-.resume-link {
-  background: #1a1a1a;
-  color: #fff !important;
-  padding: 3px 10px;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 500;
+
+/* ============================================================
+   SPOTIFY PLAYER
+   ============================================================ */
+.spotify-player {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 100;
+  width: 300px;
+  height: 80px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
-.resume-link:hover { background: #333; color: #fff !important; }
+.spotify-player iframe { display: block; border: 0; }
 
 /* ============================================================
    SCROLLBAR
@@ -529,48 +358,11 @@ ul { list-style: none; }
    RESPONSIVE
    ============================================================ */
 @media (max-width: 720px) {
-  html, body { height: auto; overflow-x: hidden; overflow-y: auto; }
-  html { scroll-behavior: smooth; }
-  .app { height: auto; }
+  /* leave room so the pinned player never covers the last card */
+  .page { padding: 3rem 1rem 7rem; gap: 2.5rem; }
 
-  /* single stack: hero + about + the rest first, projects after, footer last */
-  .layout {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem 5% 3rem;
-    gap: 2rem;
-    height: auto;
-    max-width: none;
-  }
-
-  /* promote the left column's children into the stack so the
-     footer can sit below projects instead of above them */
-  .left-col {
-    display: contents;
-  }
-
-  .right-col {
-    overflow-y: visible;
-    padding: 0;
-    order: 2;
-    scroll-margin-top: 1.25rem;
-  }
-
-  .footer { order: 3; }
-
-  /* full-width tap targets */
-  .hero-actions { gap: 0.6rem; }
-  .hero-actions .btn-primary,
-  .hero-actions .btn-ghost {
-    flex: 1;
-    padding: 0.75rem 1rem;
-    font-size: 0.88rem;
-  }
+  .spotify-player { left: 1rem; right: 1rem; bottom: 1rem; width: auto; }
 
   /* no hover on touch — keep cards flat instead of half-lifted */
-  .project-card:hover,
-  .about-card:hover,
-  .info-card:hover {
-    transform: none;
-  }
+  .project-card:hover { transform: none; }
 }
